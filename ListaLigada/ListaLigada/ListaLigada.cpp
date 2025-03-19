@@ -1,8 +1,9 @@
-
 #include <iostream>
 using namespace std;
 
 // definicao de tipo
+
+
 struct NO {
 	int valor;
 	NO* prox;
@@ -145,6 +146,43 @@ void inserirElemento()
 
 void excluirElemento()
 {
+    
+    int valor;
+    cout << "digite o valor a ser excluido" << endl;
+    cin >> valor;
+    
+    NO* atual = primeiro;
+    NO* anterior = NULL;
+    
+    while( atual != NULL && atual->valor != valor) {
+        
+        anterior = atual;    
+        atual = atual->prox; 
+    }
+    
+    if (atual == NULL) {
+        cout <<"valor não encontrado" << endl;
+    }  
+    
+    if (anterior == NULL) {
+        
+      primeiro = atual->prox;
+      free(atual);
+      return;
+    } 
+     
+     
+    anterior->prox = atual->prox;
+    
+    free(atual);
+    cout <<"elemento removido" << endl;
+    
+    
+    
+    
+    
+    
+    
 	
 }
 
