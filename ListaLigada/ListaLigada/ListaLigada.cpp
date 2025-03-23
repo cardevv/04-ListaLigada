@@ -118,6 +118,20 @@ void exibirElementos()
 
 void inserirElemento()
 {
+    
+    int valor;
+    cout << "Digite o elemento: ";
+    cin >> valor;
+    
+     // Verifica se o valor já existe na lista
+    if (posicaoElemento(valor) != NULL) {
+        cout << "Elemento já existe na lista!" << endl;
+        return;
+    }
+    
+    
+    
+    
 	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
 	if (novo == NULL)
@@ -125,9 +139,8 @@ void inserirElemento()
 		return;
 	}
 
-	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
+    novo->valor = valor;
+    novo->prox = NULL;
 
 	if (primeiro == NULL)
 	{
